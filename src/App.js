@@ -1,23 +1,23 @@
-import logo from './logo.svg';
 import './App.css';
+import LogHistory from './components/LogHistory';
+import SubmissionForm from './components/SubmissionForm';
+import TopPanel from './components/TopPanel';
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+} from "react-router-dom";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Router>
+      <TopPanel />
+        <Routes>
+          <Route path="/logs" element={<LogHistory/>} />
+          <Route path="/" element={<SubmissionForm/>}/>
+        </Routes>
+      </Router>
     </div>
   );
 }
